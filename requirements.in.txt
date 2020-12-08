@@ -1,0 +1,5 @@
+celery==4.2.2             # via -r requirements.in
+django-cms==3.7.2         # via -r requirements.in
+django==2.2.15            # via -r requirements.in, django-classy-tags, django-cms, django-formtools, django-sekizai, django-treebeard, djangorestframework
+djangorestframework==3.11.0  # via -r requirements.in
+requests==2.21.0          # via -r requirements.in

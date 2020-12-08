@@ -19,6 +19,15 @@ urllib3             1.24.3  1.26.2  wheel
 vine                1.3.0   5.0.0   wheel
 ```
 
+```
+$ grep 'via -r' requirements.txt | tee requirements.in.txt
+celery==4.2.2             # via -r requirements.in
+django-cms==3.7.2         # via -r requirements.in
+django==2.2.15            # via -r requirements.in, django-classy-tags, django-cms, django-formtools, django-sekizai, django-treebeard, djangorestframework
+djangorestframework==3.11.0  # via -r requirements.in
+requests==2.21.0          # via -r requirements.in
+```
+
 - [alanhamlett/pip-update-requirements: Update the packages in a requirements.txt file.](https://github.com/alanhamlett/pip-update-requirements)
 - [simion/pip-upgrader: An interactive pip requirements upgrader. It also updates the version in your requirements.txt file.](https://github.com/simion/pip-upgrader)
 - [bartTC/pip-check: pip-check gives you a quick overview of all installed packages and their update status.](https://github.com/bartTC/pip-check/)
