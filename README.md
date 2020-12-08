@@ -28,6 +28,19 @@ djangorestframework==3.11.0  # via -r requirements.in
 requests==2.21.0          # via -r requirements.in
 ```
 
-- [alanhamlett/pip-update-requirements: Update the packages in a requirements.txt file.](https://github.com/alanhamlett/pip-update-requirements)
-- [simion/pip-upgrader: An interactive pip requirements upgrader. It also updates the version in your requirements.txt file.](https://github.com/simion/pip-upgrader)
-- [bartTC/pip-check: pip-check gives you a quick overview of all installed packages and their update status.](https://github.com/bartTC/pip-check/)
+## [alanhamlett/pip-update-requirements](https://github.com/alanhamlett/pip-update-requirements):
+
+```
+$ pur -r requirements.in.txt
+Updated celery: 4.2.2 -> 5.0.4
+Updated django-cms: 3.7.2 -> 3.8.0
+Updated django: 2.2.15 -> 3.1.4
+Updated djangorestframework: 3.11.0 -> 3.12.2
+Updated requests: 2.21.0 -> 2.25.0
+```
+
+Also updates `requirements.in.txt` with the new versions.
+
+## [simion/pip-upgrader](https://github.com/simion/pip-upgrader)
+
+## [bartTC/pip-check](https://github.com/bartTC/pip-check/)
