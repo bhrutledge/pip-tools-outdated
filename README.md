@@ -70,4 +70,27 @@ Choice: Quit.
 Upgrade interrupted.
 ```
 
-## [bartTC/pip-check](https://github.com/bartTC/pip-check/)
+## [eight04/pip-outdated](https://github.com/eight04/pip-outdated)
+
+```
+$ pip-outdated requirements.in.txt 
+Red = unavailable/outdated/out of version specifier
+Green = updatable
++---------------------+-----------+--------+--------+
+| Name                | Installed | Wanted | Latest |
++---------------------+-----------+--------+--------+
+| celery              | 4.2.2     | 4.2.2  | 5.0.4  |
+| django-cms          | 3.7.2     | 3.7.2  | 3.8.0  |
+| django              | 2.2.15    | 2.2.15 | 3.1.4  |
+| djangorestframework | 3.11.0    | 3.11.0 | 3.12.2 |
+| requests            | 2.21.0    | 2.21.0 | 2.25.0 |
++---------------------+-----------+--------+--------+
+```
+
+Requires Python 3.7+.
+
+## Other tools
+
+- [achillesrasquinha/pipupgrade](https://github.com/achillesrasquinha/pipupgrade)
+- [bartTC/pip-check](https://github.com/bartTC/pip-check/)
+- [jgonggrijp/pip-review](https://github.com/jgonggrijp/pip-review)
