@@ -1,0 +1,5 @@
+Django>=2.2.13,<3
+django-cms>=3.7
+djangorestframework>=3.11
+celery>=4.2,<4.3.0
+requests
