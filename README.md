@@ -1,6 +1,8 @@
-# Outdated packages with pip-tools
+# Identifying outdated dependencies with pip-tools
 
-[Feature: A command like 'pip list -o' that only shows outdated packages in requirements.in · Issue #1167 · jazzband/pip-tools](https://github.com/jazzband/pip-tools/issues/1167)
+Given the high-level dependencies in [requirements.in](./requirements.in), and the current frozen packages in [requirements.txt](./requirements.txt) (compiled by [pip-tools](https://github.com/jazzband/pip-tools)), I would like to know which of my high-level dependencies are outdated.
+
+Unfortunately, `pip list --outdated` shows _all_ outdated packages in the active Python environment:
 
 ```
 $ pip list --outdated
@@ -19,6 +21,14 @@ urllib3             1.24.3  1.26.2  wheel
 vine                1.3.0   5.0.0   wheel
 ```
 
+There are open issues to filter by a requirements file:
+
+- [Allow `pip list --outdated` to take a requirements file · Issue #3314 · pypa/pip](https://github.com/pypa/pip/issues/3314)
+- [Merge feature from pip-outdated - list outdated packages from requirements file · Issue #7895 · pypa/pip](https://github.com/pypa/pip/issues/7895)
+- [Feature: A command like 'pip list -o' that only shows outdated packages in requirements.in · Issue #1167 · jazzband/pip-tools](https://github.com/jazzband/pip-tools/issues/1167)
+
+For now, we can take advantage of the `# via` comments added by pip-tools to identify the dependencies that are declared in `requirements.in`:
+
 ```
 $ grep 'via -r' requirements.txt | tee requirements.in.txt
 celery==4.2.2             # via -r requirements.in
@@ -27,6 +37,8 @@ django==2.2.15            # via -r requirements.in, django-classy-tags, django-c
 djangorestframework==3.11.0  # via -r requirements.in
 requests==2.21.0          # via -r requirements.in
 ```
+
+Then, we can use that as input to one of several tools that operate on requirements files.
 
 ## [alanhamlett/pip-update-requirements](https://github.com/alanhamlett/pip-update-requirements)
 
@@ -39,7 +51,7 @@ Updated djangorestframework: 3.11.0 -> 3.12.2
 Updated requests: 2.21.0 -> 2.25.0
 ```
 
-Also updates `requirements.in.txt` with the new versions.
+This updates `requirements.in.txt` with the new versions, but does not install the new versions.
 
 ## [simion/pip-upgrader](https://github.com/simion/pip-upgrader)
 
@@ -70,6 +82,8 @@ Choice: Quit.
 Upgrade interrupted.
 ```
 
+If we didn't quit, this would install the new versions and update `requirements.in.txt`.
+
 ## [eight04/pip-outdated](https://github.com/eight04/pip-outdated)
 
 ```
@@ -87,10 +101,4 @@ Green = updatable
 +---------------------+-----------+--------+--------+
 ```
 
-Requires Python 3.7+.
-
-## Other tools
-
-- [achillesrasquinha/pipupgrade](https://github.com/achillesrasquinha/pipupgrade)
-- [bartTC/pip-check](https://github.com/bartTC/pip-check/)
-- [jgonggrijp/pip-review](https://github.com/jgonggrijp/pip-review)
+This doesn't modify any files or install packages. Requires Python 3.7+.
