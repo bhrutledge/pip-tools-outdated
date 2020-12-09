@@ -24,7 +24,6 @@ vine                1.3.0   5.0.0   wheel
 There are open issues to filter by a requirements file:
 
 - [Allow `pip list --outdated` to take a requirements file · Issue #3314 · pypa/pip](https://github.com/pypa/pip/issues/3314)
-- [Merge feature from pip-outdated - list outdated packages from requirements file · Issue #7895 · pypa/pip](https://github.com/pypa/pip/issues/7895)
 - [Feature: A command like 'pip list -o' that only shows outdated packages in requirements.in · Issue #1167 · jazzband/pip-tools](https://github.com/jazzband/pip-tools/issues/1167)
 
 For now, we can take advantage of the `# via` comments added by pip-tools to identify the dependencies that are declared in `requirements.in`:
