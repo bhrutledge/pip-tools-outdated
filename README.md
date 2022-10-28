@@ -37,6 +37,8 @@ djangorestframework==3.11.0  # via -r requirements.in
 requests==2.21.0          # via -r requirements.in
 ```
 
+**NOTE**: This requires using `pip-compile --annotation-style line` to generate `requirements.txt`.
+
 Then, we can use that as input to one of several tools that operate on requirements files.
 
 ## [alanhamlett/pip-update-requirements](https://github.com/alanhamlett/pip-update-requirements)
